@@ -19,7 +19,7 @@ jobs:
       - run: flutter  config --enable-web
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build ios --release
+      - run: flutter build ios --release --no-codesign
 #      - run: flutter build apk --debug --split-per-abi
       - name: Push APK to Releases
         uses: ncipollo/release-action@v1
