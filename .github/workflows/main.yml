@@ -43,4 +43,4 @@ jobs:
           artifacts: "build/app/outputs/apk/debug/*.apk"
 #          artifacts: "build/ios/iphoneos/*.app"
           token: ${{ secrets.TOKEN }}
-          tag: v0.0.3
+#          tag: v0.0.3
