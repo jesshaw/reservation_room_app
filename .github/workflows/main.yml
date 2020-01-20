@@ -16,7 +16,10 @@ jobs:
         with:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable'
-      - run: flutter  config --enable-web
+      - run: flutter config --enable-web
+      - run: flutter  config --enable-linux-desktop
+      - run: flutter  config --enable-macos-desktop
+      - run: flutter  config --enable-windows-desktop
       - run: flutter pub get
       - run: flutter test
 #      - run: flutter build ios --release --no-codesign
