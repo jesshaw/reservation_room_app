@@ -26,6 +26,7 @@ jobs:
         with:
           artifacts: "build/macos/Build/Products/Release/*.app,build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.TOKEN }}
+          tag: v0.0.1
       # build Flutter web version
       - run: flutter build web
       - name: Push web to gh-pages
