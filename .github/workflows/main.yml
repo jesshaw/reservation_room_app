@@ -24,7 +24,7 @@ jobs:
         uses: ncipollo/release-action@v1
         # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
         with:
-          artifacts: "build/macos/Build/Products/Release/*.app,build/app/outputs/apk/debug/*.apk"
+          artifacts: "build/ios/iphoneos/*.app,build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.TOKEN }}
           tag: v0.0.1
       # build Flutter web version
