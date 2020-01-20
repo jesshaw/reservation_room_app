@@ -19,16 +19,17 @@ jobs:
       - run: flutter  config --enable-web
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build ios --release --no-codesign
-#      - run: flutter build apk --debug --split-per-abi
+#      - run: flutter build ios --release --no-codesign
+      - run: flutter build apk --debug --split-per-abi
       - name: Push APK to Releases
         uses: ncipollo/release-action@v1
         # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
         with:
 #          artifacts: "build/app/outputs/apk/debug/*.apk,build/ios/iphoneos/*.app"
-          artifacts: "build/ios/iphoneos/*.app"
+          artifacts: "build/app/outputs/apk/debug/*.apk"
+#          artifacts: "build/ios/iphoneos/*.app"
           token: ${{ secrets.TOKEN }}
-          tag: v0.0.2
+          tag: v0.0.3
       # build Flutter web version
       - run: flutter build web
       - name: Push web to gh-pages
