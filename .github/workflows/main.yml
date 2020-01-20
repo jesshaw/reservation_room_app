@@ -1,9 +1,9 @@
-on: push
-name: Test, Build and Release apk
+name: Test, Build and Release
+on: [push]
 jobs:
   build:
     name: Build APK
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
@@ -15,9 +15,21 @@ jobs:
           channel: 'stable'
       - run: flutter pub get
       - run: flutter test
+      - run: flutter build ios --release --no-codesign
       - run: flutter build apk --debug --split-per-abi
       - name: Push APK to Releases
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: Push APK to Releases
         uses: ncipollo/release-action@v1
+        # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
         with:
-          artifacts: "build/app/outputs/apk/debug/*.apk"
+          artifacts: "build/macos/Build/Products/Release/*.app,build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.TOKEN }}
+        # build Flutter web version
+        - run: flutter build web
+        - uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
+            BASE_BRANCH: master
+            BRANCH: gh-pages
+            FOLDER: build/web
