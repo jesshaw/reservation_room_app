@@ -12,6 +12,11 @@ A reservation room app.
 
 [reservation room web app](https://blog.lexiangmiao.com/reservation_room_app)
 
+### auto build steps
+1. git tag v0.0.4
+2. git push origin v0.0.4
+3. git push origin master #only push master trigger auto build
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
