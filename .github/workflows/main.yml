@@ -16,9 +16,10 @@ jobs:
         with:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable'
+      - run: flutter  config --enable-web
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build ios --release
+      - run: flutter build macos --release
 #      - run: flutter build apk --debug --split-per-abi
       - name: Push APK to Releases
         uses: ncipollo/release-action@v1
