@@ -23,8 +23,6 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter test
-#      - run: flutter build ios --release --no-codesign
-#      - run: flutter build apk --debug --split-per-abi
       # build Flutter web version
       - run: flutter build web
       - name: Push web to gh-pages
@@ -34,6 +32,9 @@ jobs:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: build/web
+      # build Flutter app version
+#      - run: flutter build ios --release --no-codesign
+      - run: flutter build apk --debug --split-per-abi
       - name: Push APK to Releases
         uses: ncipollo/release-action@v1
         # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
