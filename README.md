@@ -3,9 +3,10 @@
 A reservation room app.
 
 ## workflow
-[ref1](https://medium.com/better-programming/ci-cd-for-flutter-apps-using-github-actions-b833f8f7aac)
-[ref2](https://medium.com/flutter-community/run-flutter-driver-tests-on-github-actions-13c639c7e4ab)
-[ref3](https://github.com/ncipollo/release-action)
+[flutter ci/cd](https://medium.com/better-programming/ci-cd-for-flutter-apps-using-github-actions-b833f8f7aac)
+[flutter driver tests](https://medium.com/flutter-community/run-flutter-driver-tests-on-github-actions-13c639c7e4ab)
+[release action](https://github.com/ncipollo/release-action)
+[flutter web build](https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e)
 
 [![Build Status](https://github.com/jesshaw/reservation_room_app/workflows/Test,%20Build%20and%20Release/badge.svg?branch=master)](https://github.com/jesshaw/reservation_room_app/actions?query=branch%3Amaster)
 
