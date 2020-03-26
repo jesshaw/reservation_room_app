@@ -14,8 +14,7 @@ A reservation room app.
 
 ### auto build steps
 1. git tag v0.0.4
-2. git push origin v0.0.4
-3. git push origin master #only push master trigger auto build
+2. git push origin v0.0.4 #only push tag branch trigger auto build
 
 ## Getting Started
 
