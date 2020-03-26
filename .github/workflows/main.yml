@@ -1,8 +1,11 @@
 name: Test, Build and Release
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
+#    branches:
+#      - master
+#  push APK to Releases You must provide a tag either via the action input or the git ref (i.e push / create a tag). If you do not the action will fail.
 jobs:
   build:
     name: Build APK
@@ -23,6 +26,7 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter test
+
       # build Flutter web version
       - run: flutter build web
       - name: Push web to gh-pages
@@ -32,6 +36,7 @@ jobs:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: build/web
+
       # build Flutter app version
 #      - run: flutter build ios --release --no-codesign
       - run: flutter build apk --debug --split-per-abi
