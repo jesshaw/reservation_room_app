@@ -50,7 +50,7 @@ jobs:
         # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
         with:
 #          artifacts: "build/app/outputs/apk/debug/*.apk,build/ios/iphoneos/*.app"
-#          artifacts: "build/app/outputs/apk/debug/*.apk"
+          artifacts: "build/app/outputs/apk/debug/*.apk"
 #          artifacts: "build/ios/iphoneos/*.app"
           token: ${{ secrets.TOKEN }}
 #          tag: v0.0.3
