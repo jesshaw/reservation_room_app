@@ -39,17 +39,18 @@ jobs:
 
       # build Flutter app version
       # build ios version
-      - run: flutter build ios --debug --no-codesign
+#      - run: flutter build ios --debug --no-codesign
       # build macOS desktop version
 #      - run: flutter build macos --release
       # build android version
-#      - run: flutter build apk --debug --split-per-abi
-      - name: Push APK to Releases
+      - run: flutter build apk --debug --split-per-abi
+
+      - name: Push build result to releases
         uses: ncipollo/release-action@v1
         # ref: https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e
         with:
 #          artifacts: "build/app/outputs/apk/debug/*.apk,build/ios/iphoneos/*.app"
 #          artifacts: "build/app/outputs/apk/debug/*.apk"
-          artifacts: "build/ios/iphoneos/*.app"
+#          artifacts: "build/ios/iphoneos/*.app"
           token: ${{ secrets.TOKEN }}
 #          tag: v0.0.3
