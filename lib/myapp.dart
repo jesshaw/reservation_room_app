@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       // is not restarted.
       primarySwatch: Colors.blue,
     ),
-//    home: HomePage(title: 'Reservation Room Home Page!'),
-    home: LoginPage(),
+    home: HomePage(title: 'Reservation Room Home Page!'),
+//    home: LoginPage(),
 //    home: ProfilePage(),
     routes: <String, WidgetBuilder>{
       "home page": (BuildContext context) => HomePage(),
