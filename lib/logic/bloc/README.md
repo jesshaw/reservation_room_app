@@ -1,6 +1,6 @@
 bloc [Business Logic Component] 业务和组件分离
 
-bloc模式参考: https://www.jianshu.com/p/e7e1bced6890
+bloc模式参考: https://www.didierboelens.com/2018/08/reactive-programming-streams-bloc/
 
 bloc示例: https://github.com/boeledi/Streams-Block-Reactive-Programming-in-Flutter
 
