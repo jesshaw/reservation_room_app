@@ -4,10 +4,11 @@ import 'package:reservation_room_app/services/network_service_response.dart';
 import 'package:http/http.dart' as http;
 class RestClient{
   Map<String,String> headers={
-    "CONTENT_TYPE": 'application/json',
-    "ACCEPT": 'application/json',
+    "Content-Type": 'application/json;charset=UTF-8',
+    "Accept": 'application/json, text/plain, */*',
   };
 
+  // crud ref: https://medium.com/swlh/how-to-make-http-requests-in-flutter-d12e98ee1cef
   Future<MappedNetworkServiceResponse<T>> getAsync<T>
       (String resourcePath) async
   {
