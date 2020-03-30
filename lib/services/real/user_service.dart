@@ -4,20 +4,26 @@ import 'package:reservation_room_app/services/abstract/i_user_service.dart';
 import 'package:reservation_room_app/services/network_service.dart';
 import 'package:reservation_room_app/services/network_service_response.dart';
 import 'package:reservation_room_app/services/rest_client.dart';
+import 'package:reservation_room_app/utils/app_constant.dart';
 
 class UserService extends NetworkService implements IUserService {
-  static const _kUserLogin = "/login";
+  static final _kUserLogin = AppConstant.apiRoot + "/authenticate";
 
   UserService(RestClient reset) : super(reset);
 
   @override
-  Future<NetworkServiceResponse<LoginResponse>> login(
+  Future<NetworkServiceResponse<String>> authenticate(
       String loginName, String password) async {
-    var result = await reset.postAsync<LoginResponse>(_kUserLogin, loginName);
+    Map jsonMap = {
+      "username": loginName,
+      "password": password,
+      "rememberMe": true,
+    };
+
+    var result = await reset.postAsync<LoginResponse>(_kUserLogin, jsonMap);
     if (result.mappedResult != null) {
-      var res = LoginResponse.fromJson(result.mappedResult);
       return new NetworkServiceResponse(
-        content: res,
+        content: result.mappedResult['id_token'],
         success: result.networkServiceResponse.success,
       );
     }

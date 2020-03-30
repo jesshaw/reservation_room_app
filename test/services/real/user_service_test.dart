@@ -13,5 +13,14 @@ void main() {
       expect(user.content.title,
           "sunt aut facere repellat provident occaecati excepturi optio reprehenderit");
     });
+
+    test("should authenticate success", () async {
+      final rest = RestClient();
+      final userSvc = UserService(rest);
+      final user = await userSvc.authenticate("admin","admin");
+
+      expect(user.success, true);
+      expect(user.content.isNotEmpty, true);
+    });
   });
 }
