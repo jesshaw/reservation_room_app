@@ -4,9 +4,11 @@ import 'package:reservation_room_app/services/rest_client.dart';
 
 void main() {
   group("UserService", () {
+
+    final rest = RestClient();
+    final userSvc = UserService(rest);
+
     test("should fetch post success", () async {
-      final rest = RestClient();
-      final userSvc = UserService(rest);
       final user = await userSvc.fetchPost(1);
 
       expect(user.content.userId, 1);
@@ -15,8 +17,6 @@ void main() {
     });
 
     test("should authenticate success", () async {
-      final rest = RestClient();
-      final userSvc = UserService(rest);
       final user = await userSvc.authenticate("admin","admin");
 
       expect(user.success, true);
