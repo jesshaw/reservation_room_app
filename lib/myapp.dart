@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:reservation_room_app/logic/bloc/bloc_provider.dart';
+import 'package:reservation_room_app/logic/bloc/increment_bloc.dart';
+import 'package:reservation_room_app/ui/pages/counter_page.dart';
 import 'package:reservation_room_app/ui/pages/home_page.dart';
 import 'package:reservation_room_app/ui/pages/login/login_page.dart';
 import 'package:reservation_room_app/ui/pages/profile/profile_page.dart';
@@ -18,11 +21,16 @@ class MyApp extends StatelessWidget {
       // is not restarted.
       primarySwatch: Colors.blue,
     ),
-    home: HomePage(title: 'Reservation Room Home Page!'),
+//    home: HomePage(title: 'Reservation Room Home Page!'),
+    home: BlocProvider<IncrementBloc>(
+      bloc: IncrementBloc(),
+      child: CounterPage(),
+    ),
 //    home: LoginPage(),
 //    home: ProfilePage(),
     routes: <String, WidgetBuilder>{
       "home page": (BuildContext context) => HomePage(),
+      "counter page": (BuildContext context) => CounterPage(),
       "login page": (BuildContext context) => LoginPage(),
       "profile page": (BuildContext context) => ProfilePage(),
     },
