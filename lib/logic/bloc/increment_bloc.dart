@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:reservation_room_app/logic/bloc/bloc_provider.dart';
+import 'package:reservationroomapp/logic/bloc/bloc_provider.dart';
 
 class IncrementBloc extends BlocBase {
   int _counter;

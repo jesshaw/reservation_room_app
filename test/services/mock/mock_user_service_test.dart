@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:reservation_room_app/services/mock/mock_user_service.dart';
+import 'package:reservationroomapp/services/mock/mock_user_service.dart';
 
 void main() {
   group("MockUserService", () {

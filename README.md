@@ -1,20 +1,6 @@
-# reservation_room_app
+# reservationroomapp
 
-A reservation room app.
-
-## workflow
-[flutter ci/cd](https://medium.com/better-programming/ci-cd-for-flutter-apps-using-github-actions-b833f8f7aac)
-[flutter driver tests](https://medium.com/flutter-community/run-flutter-driver-tests-on-github-actions-13c639c7e4ab)
-[release action](https://github.com/ncipollo/release-action)
-[flutter web build](https://levelup.gitconnected.com/ci-cd-for-flutter-apps-3a56e3fc6d8e)
-
-[![Build Status](https://github.com/jesshaw/reservation_room_app/workflows/Test,%20Build%20and%20Release/badge.svg?branch=master)](https://github.com/jesshaw/reservation_room_app/actions?query=branch%3Amaster)
-
-[reservation room web app](https://blog.lexiangmiao.com/reservation_room_app)
-
-### auto build steps
-1. git tag v0.0.4
-2. git push origin v0.0.4 #only push tag branch trigger auto build
+A reservation room Flutter application.
 
 ## Getting Started
 

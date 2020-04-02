@@ -1,6 +1,6 @@
-import 'package:reservation_room_app/model/post_response.dart';
-import 'package:reservation_room_app/services/abstract/i_user_service.dart';
-import 'package:reservation_room_app/services/network_service_response.dart';
+import 'package:reservationroomapp/model/post_response.dart';
+import 'package:reservationroomapp/services/abstract/i_user_service.dart';
+import 'package:reservationroomapp/services/network_service_response.dart';
 
 class MockUserService implements IUserService {
   @override

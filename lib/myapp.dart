@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:reservation_room_app/logic/bloc/bloc_provider.dart';
-import 'package:reservation_room_app/logic/bloc/increment_bloc.dart';
-import 'package:reservation_room_app/ui/pages/counter_page.dart';
-import 'package:reservation_room_app/ui/pages/home_page.dart';
-import 'package:reservation_room_app/ui/pages/login/login_page.dart';
-import 'package:reservation_room_app/ui/pages/profile/profile_page.dart';
+import 'package:reservationroomapp/logic/bloc/bloc_provider.dart';
+import 'package:reservationroomapp/logic/bloc/increment_bloc.dart';
+import 'package:reservationroomapp/ui/pages/counter_page.dart';
+import 'package:reservationroomapp/ui/pages/home_page.dart';
+import 'package:reservationroomapp/ui/pages/login/login_page.dart';
+import 'package:reservationroomapp/ui/pages/profile/profile_page.dart';
 
 class MyApp extends StatelessWidget {
   final materialApp = MaterialApp(

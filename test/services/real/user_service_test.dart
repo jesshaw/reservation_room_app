@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:reservation_room_app/services/real/user_service.dart';
-import 'package:reservation_room_app/services/rest_client.dart';
+import 'package:reservationroomapp/services/real/user_service.dart';
+import 'package:reservationroomapp/services/rest_client.dart';
 
 void main() {
   group("UserService", () {

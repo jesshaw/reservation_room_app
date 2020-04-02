@@ -1,4 +1,4 @@
-import 'package:reservation_room_app/services/rest_client.dart';
+import 'package:reservationroomapp/services/rest_client.dart';
 
 abstract class NetworkService {
   RestClient reset;
