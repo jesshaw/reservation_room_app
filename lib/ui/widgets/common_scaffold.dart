@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reservation_room_app/ui/widgets/common_drawer.dart';
-import 'package:reservation_room_app/ui/widgets/custom_float.dart';
+import 'package:reservationroomapp/ui/widgets/common_drawer.dart';
+import 'package:reservationroomapp/ui/widgets/custom_float.dart';
 
 class CommonScaffold extends StatelessWidget {
   final appTitle;

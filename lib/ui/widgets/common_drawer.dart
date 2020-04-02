@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reservation_room_app/ui/widgets/about_tile.dart';
+import 'package:reservationroomapp/ui/widgets/about_tile.dart';
 
 class CommonDrawer extends StatelessWidget {
   @override

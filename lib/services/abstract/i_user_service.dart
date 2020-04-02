@@ -1,6 +1,6 @@
-import 'package:reservation_room_app/model/login_response.dart';
-import 'package:reservation_room_app/model/post_response.dart';
-import 'package:reservation_room_app/services/network_service_response.dart';
+import 'package:reservationroomapp/model/login_response.dart';
+import 'package:reservationroomapp/model/post_response.dart';
+import 'package:reservationroomapp/services/network_service_response.dart';
 
 abstract class IUserService {
   Future<NetworkServiceResponse<String>> authenticate(

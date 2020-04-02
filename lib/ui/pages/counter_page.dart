@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reservation_room_app/logic/bloc/bloc_provider.dart';
-import 'package:reservation_room_app/logic/bloc/increment_bloc.dart';
+import 'package:reservationroomapp/logic/bloc/bloc_provider.dart';
+import 'package:reservationroomapp/logic/bloc/increment_bloc.dart';
 
 //ref:https://www.jianshu.com/p/4d5e712594b4
 
