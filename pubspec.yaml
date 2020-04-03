@@ -23,9 +23,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  http: ^0.12.0+1
-  sprintf: ^4.0.0
-  rxdart: ^0.18.1
+  http: ^0.12.0+1 # rest api远程请求
+  sprintf: ^4.0.0 # 字符格式化
+  rxdart: ^0.18.1 # 响应式dart
+  device_info: ^0.4.0 # 设备信息 示例参考 https://www.didierboelens.com/2018/05/token-based-communication-with-server-part-1/
+  shared_preferences: ^0.4.0 #客户共享信息
+  bloc: ^3.0.0 # doc https://bloclibrary.dev/
+  flutter_bloc: ^3.2.0
 
 dev_dependencies:
   flutter_test:

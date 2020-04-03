@@ -6,6 +6,8 @@ import 'package:reservationroomapp/ui/pages/home_page.dart';
 import 'package:reservationroomapp/ui/pages/login/login_page.dart';
 import 'package:reservationroomapp/ui/pages/profile/profile_page.dart';
 
+
+// TODO: implement bloc https://github.com/felangel/bloc/blob/8b10f0519e/examples/flutter_login/lib/main.dart
 class MyApp extends StatelessWidget {
   final materialApp = MaterialApp(
     title: 'Reservation Room App',
@@ -35,7 +37,6 @@ class MyApp extends StatelessWidget {
       "profile page": (BuildContext context) => ProfilePage(),
     },
   );
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
