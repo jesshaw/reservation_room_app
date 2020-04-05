@@ -12,4 +12,6 @@ abstract class UserService {
   persistToken(String token) {}
 
   deleteToken() {}
+
+  signInWithGoogle() {}
 }

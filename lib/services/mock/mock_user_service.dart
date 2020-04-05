@@ -40,6 +40,12 @@ class MockUserService implements UserService {
     // TODO: implement persistToken
     return null;
   }
+
+  @override
+  signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    return null;
+  }
 }
 
 var postResponse = new PostResponse(

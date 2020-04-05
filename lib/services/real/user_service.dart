@@ -67,4 +67,10 @@ class RealUserService extends NetworkService implements UserService {
         success: result.networkServiceResponse.success,
         message: result.networkServiceResponse.message);
   }
+
+  @override
+  signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    return null;
+  }
 }

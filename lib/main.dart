@@ -33,7 +33,7 @@ class SimpleBlocDelegate extends BlocDelegate {
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   final rest = RestClient();
-  final userSvc = MockUserService();
+  final userSvc = RealUserService(rest);
   runApp(
     BlocProvider<AuthenticationBloc>(
       create: (context) {
