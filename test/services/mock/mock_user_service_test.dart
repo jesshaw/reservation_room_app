@@ -13,7 +13,7 @@ void main() {
     });
 
     test("should authenticate success", () async {
-      final user = await userSvc.authenticate("admin", "admin");
+      final user = await userSvc.authenticate(username:"admin",password: "admin");
 
       expect(user.success, true);
       expect(user.content.isNotEmpty, true);

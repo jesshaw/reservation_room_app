@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:reservationroomapp/logic/bloc/bloc_provider.dart';
-import 'package:reservationroomapp/logic/bloc/increment_bloc.dart';
+import 'package:reservationroomapp/blocs/bloc_provider.dart';
+import 'package:reservationroomapp/blocs/increment_bloc.dart';
 
 //ref:https://www.jianshu.com/p/4d5e712594b4
 
 class CounterPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final IncrementBloc bloc = BlocProvider.of<IncrementBloc>(context);

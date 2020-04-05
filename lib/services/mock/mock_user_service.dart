@@ -1,8 +1,8 @@
-import 'package:reservationroomapp/model/post_response.dart';
-import 'package:reservationroomapp/services/abstract/i_user_service.dart';
+import 'package:reservationroomapp/models/post_response.dart';
+import 'package:reservationroomapp/services/abstract/user_service.dart';
 import 'package:reservationroomapp/services/network_service_response.dart';
 
-class MockUserService implements IUserService {
+class MockUserService implements UserService {
   @override
   Future<NetworkServiceResponse<PostResponse>> fetchPost(int id) async {
     await Future.delayed(Duration(seconds: 2));
@@ -12,15 +12,33 @@ class MockUserService implements IUserService {
     ));
   }
 
+
   @override
-  Future<NetworkServiceResponse<String>> authenticate(
-      String loginName, String password) async {
-    await Future.delayed(Duration(seconds: 2));
+  Future<NetworkServiceResponse<String>> authenticate({String username, String password}) async {
+    await Future.delayed(Duration(seconds: 5));
     return Future.value(NetworkServiceResponse(
       success: true,
       content:
           "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU4NTY2MjAwOH0.-nB1a1z3SlNjMhBKYB1f9nOIS6g9fhqmmfYT-uh6KkHqbrILs6wazCHkR6N7Gc3lNVOtVb43ftu6dgZx21JTgQ",
     ));
+  }
+
+  @override
+  deleteToken() {
+    // TODO: implement deleteToken
+    return null;
+  }
+
+  @override
+  Future<bool> hasToken() async {
+    await Future.delayed(Duration(seconds: 1));
+    return false;
+  }
+
+  @override
+  persistToken(String token) {
+    // TODO: implement persistToken
+    return null;
   }
 }
 

@@ -6,7 +6,7 @@ void main() {
   group("UserService", () {
 
     final rest = RestClient();
-    final userSvc = UserService(rest);
+    final userSvc = RealUserService(rest);
 
     test("should fetch post success", () async {
       final user = await userSvc.fetchPost(1);
@@ -17,7 +17,7 @@ void main() {
     });
 
     test("should authenticate success", () async {
-      final user = await userSvc.authenticate("admin","admin");
+      final user = await userSvc.authenticate(username:"admin",password:"admin");
 
       expect(user.success, true);
       expect(user.content.isNotEmpty, true);

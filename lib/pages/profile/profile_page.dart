@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:reservationroomapp/ui/widgets/common_scaffold.dart';
-import 'package:reservationroomapp/ui/widgets/profile_title.dart';
+import 'package:reservationroomapp/widgets/common_scaffold.dart';
+import 'package:reservationroomapp/widgets/profile_title.dart';
 
 class ProfilePage extends StatelessWidget{
 

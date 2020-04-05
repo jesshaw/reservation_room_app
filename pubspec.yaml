@@ -30,6 +30,7 @@ dependencies:
   shared_preferences: ^0.5.4+6 #客户共享信息
   bloc: ^2.0.0 #doc https://bloclibrary.dev/
   flutter_bloc: ^2.1.1
+  equatable: ^1.1.0
 
 dev_dependencies:
   flutter_test:
