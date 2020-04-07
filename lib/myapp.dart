@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservationroomapp/blocs/authentication/authentication_bloc.dart';
 import 'package:reservationroomapp/blocs/authentication/authentication_state.dart';
+import 'package:reservationroomapp/blocs/tab/bloc.dart';
 import 'package:reservationroomapp/pages/counter_page.dart';
 import 'package:reservationroomapp/pages/home_page.dart';
 import 'package:reservationroomapp/pages/login/login_page.dart';
-import 'package:reservationroomapp/pages/profile/profile_page.dart';
+import 'package:reservationroomapp/pages/profile/profile_body.dart';
 import 'package:reservationroomapp/pages/splash_page.dart';
 import 'package:reservationroomapp/services/abstract/user_service.dart';
 import 'package:reservationroomapp/widgets/loading_indicator.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Reservation Room App',
+//      title: 'Reservation Room App',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -35,11 +36,20 @@ class MyApp extends StatelessWidget {
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticationAuthenticated) {
-            return HomePage(title: 'Reservation Room Home Page!');
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider<TabBloc>(
+                  create: (context)=>TabBloc(),
+                )
+              ],
+              child: HomePage(),
+            );
           }
+
           if (state is AuthenticationUnauthenticated) {
             return LoginPage(userService: userSvc);
           }
+
           if (state is AuthenticationLoading) {
             return LoadingIndicator();
           }
@@ -53,12 +63,12 @@ class MyApp extends StatelessWidget {
 //    ),
 //    home: LoginPage(),
 //    home: ProfilePage(),
-      routes: <String, WidgetBuilder>{
-        "home page": (BuildContext context) => HomePage(),
-        "counter page": (BuildContext context) => CounterPage(),
-        "login page": (BuildContext context) => LoginPage(),
-        "profile page": (BuildContext context) => ProfilePage(),
-      },
+//      routes: <String, WidgetBuilder>{
+//        "home page": (BuildContext context) => HomePage(),
+//        "counter page": (BuildContext context) => CounterPage(),
+//        "login page": (BuildContext context) => LoginPage(),
+//        "profile page": (BuildContext context) => ProfileBody(),
+//      },
     );
   }
 }

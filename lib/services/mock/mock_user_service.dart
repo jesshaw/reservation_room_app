@@ -15,7 +15,7 @@ class MockUserService implements UserService {
 
   @override
   Future<NetworkServiceResponse<String>> authenticate({String username, String password}) async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 2));
     return Future.value(NetworkServiceResponse(
       success: true,
       content:

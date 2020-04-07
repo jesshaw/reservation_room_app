@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:reservationroomapp/widgets/common_scaffold.dart';
 import 'package:reservationroomapp/widgets/profile_title.dart';
 
-class ProfilePage extends StatelessWidget{
+class ProfileBody extends StatelessWidget{
 
   Size deviceSize;
 
