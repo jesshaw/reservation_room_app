@@ -3,7 +3,7 @@ import 'package:reservationroomapp/services/real/user_service.dart';
 import 'package:reservationroomapp/services/rest_client.dart';
 
 void main() {
-  group("UserService", () {
+  group("RealUserService", () {
 
     final rest = RestClient();
     final userSvc = RealUserService(rest);

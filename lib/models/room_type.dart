@@ -4,7 +4,7 @@ class RoomType {
   final String typeDescription;
   final bool smokingYN;
   final String remark;
-  final List<String> roomTypePictures;
+  final List<String> images;
 
   RoomType(
       {this.roomTypeId,
@@ -12,7 +12,7 @@ class RoomType {
       this.typeDescription,
       this.smokingYN,
       this.remark,
-      this.roomTypePictures});
+      this.images});
 
   RoomType.fromJson(Map<String, dynamic> json)
       : roomTypeId = json["roomTypeId"],
@@ -20,5 +20,5 @@ class RoomType {
         typeDescription = json["typeDescription"],
         smokingYN = json["smokingYN"],
         remark = json["smokingYN"],
-        roomTypePictures = json["roomTypePictures"];
+        images = json["images"];
 }
