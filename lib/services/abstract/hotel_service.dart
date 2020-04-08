@@ -7,6 +7,8 @@ abstract class HotelService {
       {@required String destination,
       @required DateTime start,
       @required DateTime end,
+      @required int page,
+      @required int size,
       int rooms = 1,
       int adults = 1,
       int children = 0});

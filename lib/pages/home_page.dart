@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reservationroomapp/blocs/hotel/bloc.dart';
 import 'package:reservationroomapp/blocs/tab/bloc.dart';
 import 'package:reservationroomapp/models/app_tab.dart';
 import 'package:reservationroomapp/pages/hotel/hotels_body.dart';
 import 'package:reservationroomapp/pages/profile/profile_body.dart';
+import 'package:reservationroomapp/services/mock/mock_hotel_service.dart';
 import 'package:reservationroomapp/widgets/tab_selector.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,7 +25,13 @@ class HomePage extends StatelessWidget {
 //                // ...
 //              )
 //          ),
-          body: activeTab == AppTab.hotels ? HotelsBody() : ProfileBody(),
+          body: activeTab == AppTab.hotels
+              ? BlocProvider(
+                  create: (context) =>
+                      HotelBloc(hotelService: MockHotelService())..add(Fetch()),
+                  child: HotelsBody(),
+                )
+              : ProfileBody(),
           bottomNavigationBar: TabSelector(
             activeTab: activeTab,
             onTabSelected: (tab) =>
