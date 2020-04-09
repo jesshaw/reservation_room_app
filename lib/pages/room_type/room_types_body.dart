@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
 
-import 'package:flutter/cupertino.dart';
-
-class RoomTypesBody extends StatelessWidget{
+class RoomTypesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text('hotel list');
+    return Scaffold(
+        //search bar ref: https://github.com/rodolfoggp/search_app_bar
+        appBar: AppBar(title: Text('room typ')),
+        body: Text('room type list')
+    );
   }
-
 }

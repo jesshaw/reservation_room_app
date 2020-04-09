@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:reservationroomapp/models/app_tab.dart';
 
@@ -16,11 +17,36 @@ class TabSelector extends StatelessWidget {
       onTap: (index) => onTabSelected(AppTab.values[index]),
       items: AppTab.values.map((tab) {
         return BottomNavigationBarItem(
-            icon: Icon(
-              tab == AppTab.hotels ? Icons.hotel : Icons.account_box,
-            ),
-            title: Text(tab == AppTab.hotels ? 'hotels' : 'my profile'));
+            icon: Icon(appTabToIcon(tab)),
+            title: Text(appTabToTitle(tab))
+        );
       }).toList(),
     );
+  }
+
+  appTabToTitle(AppTab tab) {
+    switch (tab) {
+      case AppTab.hotels:
+        return "hotels";
+      case AppTab.roomType:
+        return "room type";
+      case AppTab.myProfile:
+        return "my profile";
+      default:
+        return "hotels";
+    }
+  }
+
+  appTabToIcon(AppTab tab) {
+    switch (tab) {
+      case AppTab.hotels:
+        return Icons.hotel;
+      case AppTab.roomType:
+        return Icons.room;
+      case AppTab.myProfile:
+        return Icons.account_box;
+      default:
+        return Icons.hotel;
+    }
   }
 }
