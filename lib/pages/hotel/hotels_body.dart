@@ -22,37 +22,43 @@ class _HotelsBodyState extends State<HotelsBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HotelBloc, HotelState>(
-      builder: (context, state) {
-        if (state is HotelError) {
-          return Center(
-            child: Text('failed to fetch hotels'),
-          );
-        }
-        if (state is HotelLoaded) {
-          if (state.hotels.isEmpty) {
+    return Scaffold(
+      //search bar ref: https://github.com/rodolfoggp/search_app_bar
+      appBar: AppBar(
+        title: Text('Reservation Room!'),
+      ),
+      body: BlocBuilder<HotelBloc, HotelState>(
+        builder: (context, state) {
+          if (state is HotelError) {
             return Center(
-              child: Text('no hotels'),
+              child: Text('failed to fetch hotels'),
+            );
+          }
+          if (state is HotelLoaded) {
+            if (state.hotels.isEmpty) {
+              return Center(
+                child: Text('no hotels'),
+              );
+            }
+
+            return ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return index >= state.hotels.length
+                    ? BottomLoader()
+                    : HotelWidget(hotel: state.hotels[index]);
+              },
+              itemCount: state.hasReachedMax
+                  ? state.hotels.length
+                  : state.hotels.length + 1,
+              controller: _scrollController,
             );
           }
 
-          return ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return index >= state.hotels.length
-                  ? BottomLoader()
-                  : HotelWidget(hotel: state.hotels[index]);
-            },
-            itemCount: state.hasReachedMax
-                ? state.hotels.length
-                : state.hotels.length + 1,
-            controller: _scrollController,
+          return Center(
+            child: CircularProgressIndicator(),
           );
-        }
-
-        return Center(
-          child: CircularProgressIndicator(),
-        );
-      },
+        },
+      ),
     );
   }
 

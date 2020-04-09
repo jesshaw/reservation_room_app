@@ -14,17 +14,6 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<TabBloc, AppTab>(
       builder: (context, activeTab) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text('Reservation Room!'),
-//            actions: <Widget>[],
-          ),
-//          appBar: PreferredSize(
-//              preferredSize: Size.fromHeight(50.0), // here the desired height
-//              child: AppBar(
-//                title: Text('Reservation Room!'),
-//                // ...
-//              )
-//          ),
           body: activeTab == AppTab.hotels
               ? BlocProvider(
                   create: (context) =>
