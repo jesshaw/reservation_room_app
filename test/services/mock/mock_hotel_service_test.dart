@@ -19,7 +19,7 @@ void main() {
 
         expect(result.success, true);
         if (!hasReachedMax) {
-          expect(result.content.length<=size, true);
+          expect(result.content.length <= size, true);
         }
         page++;
       }

@@ -5,46 +5,49 @@ import 'package:reservationroomapp/services/network_service.dart';
 import 'package:reservationroomapp/services/network_service_response.dart';
 import 'package:reservationroomapp/services/rest_client.dart';
 import 'package:reservationroomapp/utils/app_constant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RealUserService extends NetworkService implements UserService {
   static final _kUserLogin = AppConstant.apiRoot + "/authenticate";
 
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   RealUserService(RestClient reset) : super(reset);
 
-  @override
-  Future<NetworkServiceResponse<PostResponse>> fetchPost(int id) async {
-    final String url =
-        "https://jsonplaceholder.typicode.com/posts/" + id.toString();
-    var result = await reset.getAsync<PostResponse>(url);
-    if (result.mappedResult != null) {
-      var res = PostResponse.fromJson(result.mappedResult);
-      return new NetworkServiceResponse(
-        content: res,
-        success: result.networkServiceResponse.success,
-      );
-    }
+//  @override
+//  Future<NetworkServiceResponse<PostResponse>> fetchPost(int id) async {
+//    final String url =
+//        "https://jsonplaceholder.typicode.com/posts/" + id.toString();
+//    var result = await reset.getAsync<PostResponse>(url);
+//    if (result.mappedResult != null) {
+//      var res = PostResponse.fromJson(result.mappedResult);
+//      return new NetworkServiceResponse(
+//        content: res,
+//        success: result.networkServiceResponse.success,
+//      );
+//    }
+//
+//    return new NetworkServiceResponse(
+//        success: result.networkServiceResponse.success,
+//        message: result.networkServiceResponse.message);
+//  }
 
-    return new NetworkServiceResponse(
-        success: result.networkServiceResponse.success,
-        message: result.networkServiceResponse.message);
-  }
-
   @override
-  deleteToken() {
-    // TODO: implement deleteToken
-    return null;
+  Future<void> deleteToken() async{
+    final SharedPreferences prefs = await _prefs;
+    prefs.remove(AppConstant.storageKeyMobileToken);
   }
 
   @override
   Future<bool> hasToken() async {
-    await Future.delayed(Duration(seconds: 1));
-    return false;
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getString(AppConstant.storageKeyMobileToken).isNotEmpty;
   }
 
   @override
-  persistToken(String token) {
-    // TODO: implement persistToken
-    return null;
+  Future<void> persistToken(String token) async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString(AppConstant.storageKeyMobileToken, token);
   }
 
   @override

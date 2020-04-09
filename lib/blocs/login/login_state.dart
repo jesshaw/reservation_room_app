@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
 @immutable
@@ -8,6 +7,7 @@ class LoginState {
   final bool isSubmitting;
   final bool isSuccess;
   final bool isFailure;
+  String token;
 
   bool get isFormValid => isEmailValid && isPasswordValid;
 
@@ -17,6 +17,7 @@ class LoginState {
     @required this.isSubmitting,
     @required this.isSuccess,
     @required this.isFailure,
+    this.token,
   });
 
   factory LoginState.empty() {
@@ -49,12 +50,13 @@ class LoginState {
     );
   }
 
-  factory LoginState.success() {
+  factory LoginState.success({String token}) {
     return LoginState(
       isEmailValid: true,
       isPasswordValid: true,
       isSubmitting: false,
       isSuccess: true,
+      token: token,
       isFailure: false,
     );
   }

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:reservationroomapp/pages/login/validators.dart';
 import 'package:reservationroomapp/services/abstract/user_service.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -90,9 +89,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }) async* {
     yield LoginState.loading();
     try {
-      final authResult = await _userService.authenticate(username: email, password: password);
-      if(authResult.success) {
-        yield LoginState.success();
+      final authResult =
+          await _userService.authenticate(username: email, password: password);
+      if (authResult.success) {
+        yield LoginState.success(token: authResult.content);
       }
       yield LoginState.failure();
     } catch (_) {
