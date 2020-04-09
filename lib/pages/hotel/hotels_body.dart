@@ -80,13 +80,25 @@ class HotelWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     return ListTile(
-      leading: Image.network('${hotel.images[0]}',
-          width: deviceSize.width * 0.3, fit: BoxFit.fitWidth)
-//      Text(
-//        '${hotel.hotelId}',
-//        style: TextStyle(fontSize: 10.0),
-//      )
-      ,
+//    //https://flutter.cn/docs/cookbook/images/cached-images
+//      leading: CachedNetworkImage(
+//          imageUrl: '${hotel.images[0]}',
+//          placeholder: (context, url) => CircularProgressIndicator(),
+//          errorWidget: (context, url, error) => Icon(Icons.error),
+//          width: deviceSize.width * 0.3,
+//          fit: BoxFit.fitWidth),
+
+      // https://flutter.cn/docs/cookbook/images/fading-in-images
+//      leading: FadeInImage.memoryNetwork(
+//          placeholder: kTransparentImage,
+//          image: '${hotel.images[0]}',
+//          width: deviceSize.width * 0.3,
+//          fit: BoxFit.fitWidth),
+      leading: FadeInImage.assetNetwork(
+          placeholder: 'assets/flutter_logo.png',
+          image: '${hotel.images[0]}',
+          width: deviceSize.width * 0.3,
+          fit: BoxFit.fitWidth),
       title: Text(hotel.name),
       isThreeLine: true,
       subtitle: Text(hotel.address),
