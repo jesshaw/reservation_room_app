@@ -155,6 +155,15 @@ class ProfileBody extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
+        actions: <Widget>[
+        SizedBox(
+          width: 5.0,
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.settings),
+        )
+      ],
       ),
       body: bodyData(),
     );
