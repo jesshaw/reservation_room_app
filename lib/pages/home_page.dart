@@ -4,6 +4,7 @@ import 'package:reservationroomapp/blocs/hotel/bloc.dart';
 import 'package:reservationroomapp/blocs/tab/bloc.dart';
 import 'package:reservationroomapp/models/app_tab.dart';
 import 'package:reservationroomapp/pages/hotel/hotels_body.dart';
+import 'package:reservationroomapp/pages/periphery/periphery_attraction_body.dart';
 import 'package:reservationroomapp/pages/profile/profile_body.dart';
 import 'package:reservationroomapp/pages/room_type/room_types_body.dart';
 import 'package:reservationroomapp/services/mock/mock_hotel_service.dart';
@@ -35,8 +36,8 @@ class HomePage extends StatelessWidget {
           HotelBloc(hotelService: MockHotelService())..add(Fetch()),
           child: HotelsBody(),
         );
-      case AppTab.roomType:
-        return RoomTypesBody();
+      case AppTab.periphery:
+        return PeripheryAttractionBody();
       case AppTab.myProfile:
         return ProfileBody();
       default:

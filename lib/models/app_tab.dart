@@ -1,1 +1,1 @@
-enum AppTab { hotels, roomType, myProfile }
+enum AppTab { hotels, periphery, myProfile }

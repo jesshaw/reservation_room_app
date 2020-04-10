@@ -28,8 +28,8 @@ class TabSelector extends StatelessWidget {
     switch (tab) {
       case AppTab.hotels:
         return "hotels";
-      case AppTab.roomType:
-        return "room type";
+      case AppTab.periphery:
+        return "periphery";
       case AppTab.myProfile:
         return "my profile";
       default:
@@ -41,8 +41,8 @@ class TabSelector extends StatelessWidget {
     switch (tab) {
       case AppTab.hotels:
         return Icons.hotel;
-      case AppTab.roomType:
-        return Icons.room;
+      case AppTab.periphery:
+        return Icons.person_pin_circle;
       case AppTab.myProfile:
         return Icons.account_box;
       default:
