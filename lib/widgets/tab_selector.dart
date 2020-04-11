@@ -42,7 +42,7 @@ class TabSelector extends StatelessWidget {
       case AppTab.hotels:
         return Icons.hotel;
       case AppTab.periphery:
-        return Icons.person_pin_circle;
+        return Icons.center_focus_strong;
       case AppTab.myProfile:
         return Icons.account_box;
       default:

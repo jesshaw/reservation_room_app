@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:reservationroomapp/widgets/common_scaffold.dart';
 import 'package:reservationroomapp/widgets/profile_title.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -152,18 +151,18 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     deviceSize = MediaQuery.of(context).size;
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
         actions: <Widget>[
-        SizedBox(
-          width: 5.0,
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.settings),
-        )
-      ],
+          SizedBox(
+            width: 5.0,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.settings),
+          )
+        ],
       ),
       body: bodyData(),
     );
