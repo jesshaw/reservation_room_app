@@ -15,7 +15,7 @@ class Attraction {
   final String remark;
 
   Attraction(
-      this.attractionId,
+      {this.attractionId,
       this.cityId,
       this.images,
       this.name,
@@ -28,7 +28,7 @@ class Attraction {
       this.travelInfo,
       this.contactInfo,
       this.smokingYN,
-      this.remark);
+      this.remark});
 
   Attraction.fromJson(Map<String, dynamic> json)
       : attractionId = json["attractionId"],

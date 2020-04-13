@@ -26,12 +26,12 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
 
   @override
   Stream<HotelState> mapEventToState(HotelEvent event,) async* {
-    final currenState = state;
+    final currentState = state;
 
-    if (event is Fetch && !_hasReachedMax(currenState)) {
+    if (event is Fetch && !_hasReachedMax(currentState)) {
       try {
         int size = 10;
-        if (currenState is HotelUninitialized) {
+        if (currentState is HotelUninitialized) {
           final result = await hotelService.search(
               destination: 'shanghai',
               start: DateTime.parse("20200408"),
@@ -41,15 +41,15 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           yield HotelLoaded(hotels: result.content, hasReachedMax: false);
           return;
         }
-        if (currenState is HotelLoaded) {
+        if (currentState is HotelLoaded) {
           final result = await hotelService.search(
               destination: 'shanghai',
               start: DateTime.parse("20200408"),
               end: DateTime.parse("20200409"),
-              page: (currenState.hotels.length / size).floor(),
+              page: (currentState.hotels.length / size).floor(),
               size: size);
-          yield currenState.copyWith(
-              hotels: currenState.hotels + result.content,
+          yield currentState.copyWith(
+              hotels: currentState.hotels + result.content,
               hasReachedMax: result.content.isEmpty ||
                   result.content.length < size);
         }
