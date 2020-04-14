@@ -1,27 +1,31 @@
- import 'dart:convert';
+import 'dart:convert';
 
-import 'package:reservationroomapp/services/network_service_response.dart';
 import 'package:http/http.dart' as http;
-class RestClient{
-  Map<String,String> headers={
+import 'package:reservationroomapp/services/network_service_response.dart';
+
+class RestClient {
+
+  RestClient({httpClient}) : this._http = httpClient ?? http.Client();
+
+  http.Client _http;
+
+  Map<String, String> headers = {
     "Content-Type": 'application/json;charset=UTF-8',
     "Accept": 'application/json, text/plain, */*',
   };
 
   // crud ref: https://medium.com/swlh/how-to-make-http-requests-in-flutter-d12e98ee1cef
-  Future<MappedNetworkServiceResponse<T>> getAsync<T>
-      (String resourcePath) async
-  {
-    var response= await http.get(resourcePath);
+  Future<MappedNetworkServiceResponse<T>> getAsync<T>(
+      String resourcePath) async {
+    var response = await _http.get(resourcePath);
     return processResponse<T>(response);
   }
-
 
   Future<MappedNetworkServiceResponse<T>> postAsync<T>(
       String resourcePath, dynamic data) async {
     var content = json.encoder.convert(data);
     var response =
-    await http.post(resourcePath, body: content, headers: headers);
+        await _http.post(resourcePath, body: content, headers: headers);
     return processResponse<T>(response);
   }
 
@@ -30,7 +34,7 @@ class RestClient{
         (response.statusCode >= 300) ||
         (response.body == null))) {
       var jsonResult = response.body;
-      dynamic resultClass =jsonDecode(jsonResult);
+      dynamic resultClass = jsonDecode(jsonResult);
 
       return new MappedNetworkServiceResponse<T>(
           mappedResult: resultClass,
@@ -43,5 +47,4 @@ class RestClient{
               message: "(${response.statusCode}) ${errorResponse.toString()}"));
     }
   }
-
 }

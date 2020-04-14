@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   group("MockUserService", () {
     test("should authenticate success", () async {
+      SharedPreferences.setMockInitialValues({});
       final userSvc = MockUserService();
       final user =
           await userSvc.authenticate(username: "admin", password: "admin");

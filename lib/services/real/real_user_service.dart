@@ -1,5 +1,4 @@
 import 'package:reservationroomapp/models/login_response.dart';
-import 'package:reservationroomapp/models/post_response.dart';
 import 'package:reservationroomapp/services/abstract/user_service.dart';
 import 'package:reservationroomapp/services/network_service.dart';
 import 'package:reservationroomapp/services/network_service_response.dart';
@@ -33,7 +32,7 @@ class RealUserService extends NetworkService implements UserService {
 //  }
 
   @override
-  Future<void> deleteToken() async{
+  Future<void> deleteToken() async {
     final SharedPreferences prefs = await _prefs;
     prefs.remove(AppConstant.storageKeyMobileToken);
   }

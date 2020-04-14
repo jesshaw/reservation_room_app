@@ -1,9 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:reservationroomapp/services/real/real_user_service.dart';
 import 'package:reservationroomapp/services/rest_client.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   group("RealUserService", () {
+    SharedPreferences.setMockInitialValues({});
     final rest = RestClient();
     final userSvc = RealUserService(rest);
 

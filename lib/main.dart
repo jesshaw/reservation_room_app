@@ -5,6 +5,7 @@ import 'package:reservationroomapp/blocs/authentication/authentication_bloc.dart
 import 'package:reservationroomapp/blocs/authentication/authentication_event.dart';
 import 'package:reservationroomapp/myapp.dart';
 import 'package:reservationroomapp/services/mock/mock_user_service.dart';
+import 'package:reservationroomapp/services/real/real_user_service.dart';
 import 'package:reservationroomapp/services/rest_client.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
@@ -32,8 +33,8 @@ class SimpleBlocDelegate extends BlocDelegate {
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   final rest = RestClient();
-//  final userSvc = RealUserService(rest);
-  final userSvc = MockUserService();
+  final userSvc = RealUserService(rest);
+//  final userSvc = MockUserService();
   runApp(
     BlocProvider<AuthenticationBloc>(
       create: (context) {
