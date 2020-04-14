@@ -25,7 +25,7 @@ jobs:
           flutter upgrade
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter test
+#      - run: flutter test
 
       # build Flutter web version
       - run: flutter build web
