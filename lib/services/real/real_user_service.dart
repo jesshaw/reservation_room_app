@@ -40,7 +40,8 @@ class RealUserService extends NetworkService implements UserService {
   @override
   Future<bool> hasToken() async {
     final SharedPreferences prefs = await _prefs;
-    return prefs.getString(AppConstant.storageKeyMobileToken).isNotEmpty;
+    final String token = prefs.getString(AppConstant.storageKeyMobileToken);
+    return token != null;
   }
 
   @override

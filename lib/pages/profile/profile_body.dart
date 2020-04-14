@@ -159,7 +159,9 @@ class ProfileBody extends StatelessWidget {
             width: 5.0,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/settings");
+            },
             icon: Icon(Icons.settings),
           )
         ],

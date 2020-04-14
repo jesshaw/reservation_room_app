@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservationroomapp/blocs/authentication/authentication_bloc.dart';
 import 'package:reservationroomapp/blocs/authentication/authentication_state.dart';
 import 'package:reservationroomapp/blocs/tab/bloc.dart';
-import 'package:reservationroomapp/pages/counter_page.dart';
 import 'package:reservationroomapp/pages/home_page.dart';
 import 'package:reservationroomapp/pages/login/login_page.dart';
-import 'package:reservationroomapp/pages/profile/profile_body.dart';
+import 'package:reservationroomapp/pages/profile/settings_page.dart';
 import 'package:reservationroomapp/pages/splash_page.dart';
 import 'package:reservationroomapp/services/abstract/user_service.dart';
 import 'package:reservationroomapp/widgets/loading_indicator.dart';
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
             return MultiBlocProvider(
               providers: [
                 BlocProvider<TabBloc>(
-                  create: (context)=>TabBloc(),
+                  create: (context) => TabBloc(),
                 )
               ],
               child: HomePage(),
@@ -53,9 +52,14 @@ class MyApp extends StatelessWidget {
           if (state is AuthenticationLoading) {
             return LoadingIndicator();
           }
+
           return SplashPage();
         },
       ),
+      routes: <String, WidgetBuilder>{
+        '/settings': (BuildContext context) => SettingsPage(userService: userSvc)
+      },
+//  },
 //    home: HomePage(title: 'Reservation Room Home Page!'),
 //    home: BlocProvider<IncrementBloc>(
 //      bloc: IncrementBloc(),
