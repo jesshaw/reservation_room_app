@@ -18,7 +18,7 @@ class MockAttractionService implements AttractionService {
   }
 }
 
-var attractions = _createAttractions(32);
+var attractions = _createAttractions(20);
 Random rnd = new Random();
 List<Attraction> _createAttractions(int count) {
   return List.generate(count, (i) => Attraction(

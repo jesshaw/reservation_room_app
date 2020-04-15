@@ -50,9 +50,10 @@ class _PeripheryBody extends State<PeripheryBody> {
                 crossAxisSpacing: 4.0,
                 itemCount: state.attractions.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return index * 2 >= state.attractions.length
-                      ? _BottomLoader()
-                      : _Tile(attraction: state.attractions[index]);
+//                  return index * 2 >= state.attractions.length
+//                      ? _BottomLoader()
+//                      : _Tile(attraction: state.attractions[index]);
+                  return _Tile(attraction: state.attractions[index]);
                 },
                 staggeredTileBuilder: (index) => new StaggeredTile.fit(2),
                 controller: _scrollController,

@@ -42,7 +42,7 @@ class AttractionBloc extends Bloc<AttractionEvent, AttractionState> {
         }
         if (currentState is AttractionLoaded) {
           final result =
-              await attractionService.fetch(cityId: 1, page: 0, size: size);
+              await attractionService.fetch(cityId: 1, page: (currentState.attractions.length / size).floor(), size: size);
           yield currentState.copyWith(
               attractions: currentState.attractions + result.content,
               hasReachedMax:
