@@ -10,7 +10,7 @@ A reservation room app.
 
 [![Build Status](https://github.com/jesshaw/reservation_room_app/workflows/Test,%20Build%20and%20Release/badge.svg?branch=master)](https://github.com/jesshaw/reservation_room_app/actions?query=branch%3Amaster)
 
-[reservation room web app](https://blog.lexiangmiao.com/reservation_room_app)
+[reservation room web app](https://lexiangmiao.com/reservation_room_app)
 
 ### auto build steps
 1. git tag v0.0.4
